@@ -1,49 +1,48 @@
-# 🌍 Global Health Statistics Analysis & Dashboard
+# 🕵️‍♂️ Building a Crime Reports Database using MySQL & Python
 
-## 📌 Description
+This project demonstrates the process of building, populating, and analyzing a structured database for crime reports using real-world data. It is built using MySQL, Python, and Jupyter Notebook. The dataset consists of 100,000 crime records with detailed information such as date, time, location, crime type, and victim details.
 
-This project focuses on the analysis of global health statistics to provide insights into healthcare access, income disparities, and health outcomes across different regions. By cleaning and preparing the data, conducting exploratory data analysis (EDA), and applying machine learning models, the project uncovers valuable patterns and trends. An interactive Tableau dashboard has been created to visualize the findings and provide a business perspective on key health metrics. This dashboard allows stakeholders to interact with the data and make informed decisions based on feature importance and model performance.
+## 📂 Project Structure
 
-## 🔧 Tools & Technologies Used
 
-- **Programming**: Python (Jupyter Notebook)
-- **Libraries**: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
-- **Visualization**: Tableau
-- **ML Models**: Linear Regression, Random Forest
+---
 
-## 🧹 Data Preparation
+## 📌 Features
 
-- Handled missing values and inconsistencies using **Pandas** and **NumPy**
-- Standardized formats and cleaned the dataset for analysis and modeling
+- ✅ Clean and preprocess a raw crime dataset
+- ✅ Create MySQL database and tables
+- ✅ Load cleaned data from Pandas DataFrame into MySQL
+- ✅ Run useful SQL queries to analyze crime patterns
+- ✅ Perform Exploratory Data Analysis (EDA) using Pandas and Matplotlib
 
-## 📊 Exploratory Data Analysis (EDA)
+---
 
-- Used **Matplotlib** and **Seaborn** for visualizing:
-  - Health access across income groups
-  - Regional disparities in outcomes
-  - Correlation between variables like income and life expectancy
+## 🛠 Technologies Used
 
-## 🤖 Machine Learning
+- Python 3.x
+- Pandas
+- Matplotlib
+- MySQL (with MySQL Workbench)
+- SQLAlchemy
+- Jupyter Notebook
 
-- Developed predictive models:
-  - **Linear Regression** for baseline modeling
-  - **Random Forest** for improved performance and feature importance analysis
-- Evaluated using:
-  - **Root Mean Squared Error (RMSE)**
-  - **R² Score**
+---
 
-## 📈 Interactive Dashboard
+## 🧪 Sample SQL Queries
 
-- Created an interactive dashboard in **Tableau** to:
-  - Visualize key findings
-  - Highlight feature importance
-  - Support data-driven policy and business decisions
+```sql
+-- Total number of crime reports
+SELECT COUNT(*) FROM crime_reports;
 
-## 🎯 Key Takeaways
+-- Top 5 most common crime types
+SELECT crm_cd_desc, COUNT(*) AS count 
+FROM crime_reports
+GROUP BY crm_cd_desc
+ORDER BY count DESC
+LIMIT 5;
 
-- Income level and healthcare access are strongly correlated with health outcomes
-- Random Forest outperformed Linear Regression in predictive accuracy
-- Dashboard provides a high-level summary for stakeholders and decision-makers
-
-## 📂 Repository Structure
-
+-- Crimes per area
+SELECT area_name, COUNT(*) AS total_crimes
+FROM crime_reports
+GROUP BY area_name
+ORDER BY total_crimes DESC;
